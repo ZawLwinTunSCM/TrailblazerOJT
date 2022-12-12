@@ -1,0 +1,37 @@
+<div class="w-50 mx-auto">
+<h1>Post List</h1>
+<% if notice %>
+  <div class="text-success"> <%= notice %> </div>
+<% end %>
+<%= form_with model: @post, method: :GET do |form| %>
+  <div class="row my-3">
+    <div class="col-md-4">
+      <%= link_to "Add New Post", new_post_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr class="text-center">
+      <th class="no-sort">No</th>
+      <th class="no-sort">Title</th>
+      <th class="no-sort">Description</th>
+      <th>Created At</th>
+      <th class="no-sort">Updated At</th>
+      <th class="no-sort">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @posts.each.with_index do |post, index| %>
+        <tr>
+          <td class="text-center"><%= @posts.size-index %></td>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+          <td><%= post.created_at.strftime("%Y-%m-%d %I:%M:%S %p") %></td>
+          <td><%= post.updated_at.strftime("%Y-%m-%d %I:%M:%S %p") %></td>
+          <td class="text-center"><%= link_to "Detail", post_path(post.id), class: "btn btn-info" %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+</div>
