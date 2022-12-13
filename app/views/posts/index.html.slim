@@ -1,0 +1,26 @@
+.w-50.mx-auto
+  h1 Post List
+  - if notice 
+    .text-success #{notice}
+  = form_with model: @post, method: :GET do |form|
+  .row.my-3
+    .col-md-4
+      = link_to "Add New Post", new_post_path, class: "btn btn-primary" 
+  table.table.table-bordered
+    thread.thread-dark
+      tr.text-center
+        th.no-sort No
+        th.no-sort Title
+        th.no-sort Description
+        th Created At
+        th.no-sort Updated At
+        th.no-sort Action
+    tbody
+      - @model.each.with_index do |post, index|
+        tr
+          td.text-center == index+1
+          td #{post.title}
+          td #{post.body}
+          td #{post.created_at.strftime("%Y-%m-%d")}
+          td #{post.updated_at.strftime("%Y-%m-%d")}
+          td.text-center = link_to "Detail", post_path(post.id), class: "btn btn-info"
