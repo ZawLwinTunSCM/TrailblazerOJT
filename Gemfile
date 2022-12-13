@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
  gem "trailblazer", ">= 2.0.3"
  gem 'slim-rails', '~> 3.3'
  gem 'trailblazer-rails', '~> 2.1', '>= 2.1.7'
+ gem 'rubocop-rails', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
