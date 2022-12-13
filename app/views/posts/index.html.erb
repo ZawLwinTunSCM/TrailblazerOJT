@@ -22,9 +22,9 @@
     </tr>
   </thead>
   <tbody>
-      <% @posts.each.with_index do |post, index| %>
+      <% @model.each.with_index do |post, index| %>
         <tr>
-          <td class="text-center"><%= @posts.size-index %></td>
+          <td class="text-center"><%= index+1 %></td>
           <td><%= post.title %></td>
           <td><%= post.body %></td>
           <td><%= post.created_at.strftime("%Y-%m-%d %I:%M:%S %p") %></td>

@@ -1,46 +1,43 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    run Post::Operation::Index
   end
 
   def new
     run Post::Operation::Create::Present
-    @post = result[:model]
   end
 
   def create
-    @post = Post.create(post_params)
-    if @post.save
-      redirect_to posts_path, notice: 'Post Created Successfully'
-    else
-      render :new
+    run Post::Operation::Create do |_result|
+      return redirect_to posts_path, notice: 'Post Created Successfully'
     end
+    render :new, notice: 'Failed to create post'
   end
 
   def show
-    @post = Post.find(params[:id])
+    run Post::Operation::Show
   end
 
   def edit
-    @post = Post.find(params[:id])
+    run Post::Operation::Update::Present
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
-      redirect_to posts_path, notice: 'Post Updated Successfully'
-    else
-      render :edit
+    run Post::Operation::Update do |_result|
+      return redirect_to posts_path, notice: 'Post Updated Successfully'
     end
+    render :edit, notice: 'Failed to update post'
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path, notice: 'Post Deleted Successfully'
+    run Post::Operation::Destroy do |_result|
+      redirect_to posts_path, notice: 'Post deleted successfully'
+    end
   end
 
-  private def post_params
+  private
+
+  def post_params
     params.require(:post).permit(:title, :body)
   end
 end
