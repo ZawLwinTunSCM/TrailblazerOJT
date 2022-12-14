@@ -11,6 +11,8 @@ Slim References Link
 - https://github.com/slim-template/slim
 
 Sidekiq Refernece Link
+- https://www.bootrails.com/blog/rails-sidekiq-tutorial/
 - https://www.youtube.com/watch?v=CStZg8ql9Vs
+- https://www.youtube.com/watch?v=iIXLt24f8Mg
 
 
