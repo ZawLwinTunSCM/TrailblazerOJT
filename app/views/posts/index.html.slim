@@ -6,6 +6,8 @@
   .row.my-3
     .col-md-4
       = link_to "Add New Post", new_post_path, class: "btn btn-primary" 
+    .col-md-4
+      = link_to "Generate New Post", "create_random" , class: "btn btn-success" 
   table.table.table-bordered
     thread.thread-dark
       tr.text-center

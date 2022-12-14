@@ -7,6 +7,17 @@ class PostsController < ApplicationController
     run Post::Operation::Create::Present
   end
 
+  def create_random
+    RandomPostJob.perform_async
+    #RamdomJob.perform_later
+     #post = Post.new
+     #post.title = "Random Title"
+     #post.body = "Random Body"
+     #post.save!
+     #sleep 5
+    redirect_to posts_path, notice: 'Post Created Successfully'
+  end
+
   def create
     run Post::Operation::Create do |_result|
       return redirect_to posts_path, notice: 'Post Created Successfully'
