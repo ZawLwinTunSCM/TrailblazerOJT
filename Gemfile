@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.7'
  gem 'trailblazer-rails', '~> 2.1', '>= 2.1.7'
  gem 'sidekiq', '~> 6.5', '>= 6.5.8'
  gem 'sinatra'
- gem 'rubocop-rails', require: false
+ #gem 'rubocop-rails', require: false
  
  #RSpec
  group :test do
