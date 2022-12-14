@@ -1,10 +1,11 @@
 class RandomPostJob
   include Sidekiq::Job
+  require 'faker'
 
   def perform(*_args)
     post = Post.new
-    post.title = 'Random Title'
-    post.body = 'Random Body'
+    post.title = Faker::JapaneseMedia::Doraemon.character
+    post.body = Faker::JapaneseMedia::Doraemon.gadget
     post.save!
     sleep 5
   end
