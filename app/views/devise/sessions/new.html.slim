@@ -1,0 +1,21 @@
+h2.pt-5.pb-2.text-center Log In
+.row
+  .col-md-4
+  .col-md-4 
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form|
+      .mt-2
+        = form.label :email, class: "required"
+        = form.email_field :email, class: "form-control", placeholder: "Enter Email"
+        - if resource.errors[:email].any?
+          .text-danger Email #{resource.errors[:email]}
+      .mt-2
+        = form.label :password, class: "required"
+        = form.password_field :password, class: "form-control", placeholder: "Enter Password"
+        - if resource.errors[:password].any?
+          .text-danger Password #{resource.errors[:password]}
+      .mt-2
+        = form.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      .text-center.py-3
+        = form.submit "Sign Up", class: "btn btn-primary mr-2"
+        = link_to "Back", posts_path, class: "btn btn-dark ml-2"
+  .col-md-4

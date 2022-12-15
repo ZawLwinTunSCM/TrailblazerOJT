@@ -9,13 +9,12 @@ class PostsController < ApplicationController
   end
 
   def create_random
-    RandomPostJob.perform_async
+    #RandomPostJob.perform_async
     #RamdomJob.perform_later
-    # post = Post.new
-    # post.title = Faker::JapaneseMedia::Doraemon.character
-    # post.body = Faker::JapaneseMedia::Doraemon.gadget
-    # post.save!
-    # sleep 5
+      post = Post.new
+      post.title = Faker::JapaneseMedia::Doraemon.character
+      post.body = Faker::JapaneseMedia::Doraemon.gadget
+      post.save!
     redirect_to posts_path, notice: 'Post Created Successfully'
   end
 

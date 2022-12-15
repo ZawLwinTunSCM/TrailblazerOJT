@@ -1,0 +1,12 @@
+.container {
+  min-height: calc(100vh - 85px);
+}
+
+.error {
+  color: red;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+}
