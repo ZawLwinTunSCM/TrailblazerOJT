@@ -31,7 +31,10 @@ gem 'jbuilder', '~> 2.7'
  gem 'trailblazer-rails', '~> 2.1', '>= 2.1.7'
  gem 'sidekiq', '~> 6.5', '>= 6.5.8'
  gem 'sinatra'
+ gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
  #gem 'rubocop-rails', require: false
+ gem "net-http"
  
  #RSpec
  group :test do

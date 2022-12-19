@@ -12,6 +12,19 @@
         = form.text_area :body, class: "form-control", placeholder: "Enter Body"
         - if @form.errors[:body].any?
           .text-danger #{@form.errors[:body][0]}
+      .mt-2
+        = form.label :public_flag, "Status : " , class: "required mr-3"
+        = form.select :public_flag, options_for_select([["Users",2],["Public",1],["Private",3]]){},{}, {:class => 'form-control'}
+        / = form.radio_button :public_flag, 1
+        / = form.label :public_flag, "Public", value: "1", class: "mr-3"
+        / = form.radio_button :public_flag, 2
+        / = form.label :public_flag, "Users",  value: "2", class: "mr-3"
+        / = form.radio_button :public_flag, 3
+        / = form.label :public_flag, "Private",  value: "3"
+        = form.hidden_field :user_id, value: "#{current_user.id}"
+
+      - if @form.errors[:public_flag].any?
+        .text-danger #{@form.errors[:public_flag][0]}
       .text-center.py-3
         = form.submit class: "btn btn-primary mr-2"
         = link_to "Back", posts_path, class: "btn btn-dark ml-2"

@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index]
   require 'faker'
   def index
-    run Post::Operation::Index
+    run Post::Operation::Index, current_user: current_user
+    #@model = @model.paginate(:page => params[:page],:per_page => 5)
   end
 
   def new
@@ -12,10 +15,12 @@ class PostsController < ApplicationController
     #RandomPostJob.perform_async
     #RamdomJob.perform_later
       post = Post.new
-      post.title = Faker::JapaneseMedia::Doraemon.character
-      post.body = Faker::JapaneseMedia::Doraemon.gadget
+      post.title = Faker::Superhero.name
+      post.body = Faker::Superhero.power
+      post.user_id = current_user.id
+      post.public_flag = 3
       post.save!
-    redirect_to posts_path, notice: 'Post Created Successfully'
+      redirect_to posts_path, notice: 'Post Created Successfully'
   end
 
   def create
@@ -49,6 +54,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :user_id, :public_flag)
   end
 end

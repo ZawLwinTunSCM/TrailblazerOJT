@@ -1,8 +1,8 @@
-h2.pt-5.pb-2.text-center Sign Up
+h2.pt-5.pb-2.text-center Edit Profile
 .row
   .col-md-4
   .col-md-4 
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| 
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form|
       / .mt-2
       /   = form.label :name, class: "required"
       /   = form.text_field :name, class: "form-control", placeholder: "Enter Name"
@@ -14,19 +14,30 @@ h2.pt-5.pb-2.text-center Sign Up
         - if resource.errors[:email].any?
           .text-danger Email #{resource.errors[:email][0]}
       .mt-2
-        = form.label :password, class: "required"
+        .row
+          .col-md-8
+            = form.label :password, "New Password", class: "required"
+          .col-md-4.text-right*{'data-toggle'=>'tooltip', 'data-placement'=>'right', 'title'=>'Leave Blank if You Don\'t Want to Change'} <i class='fas fa-circle-info'></i>
         = form.password_field :password, class: "form-control", placeholder: "Enter Password"
         - if resource.errors[:password].any?
           .text-danger Password #{resource.errors[:password][0]}
       .mt-2
-        = form.label :password_confirmation, class: "required"
+        .row
+          .col-md-8
+            = form.label :password_confirmation, "New Password Confirmation", class: "required"
+          .col-md-4.text-right*{'data-toggle'=>'tooltip', 'data-placement'=>'right', 'title'=>'Leave Blank if You Don\'t Want to Change'} <i class='fas fa-circle-info'></i>
         = form.password_field :password_confirmation, class: "form-control", placeholder: "Enter Password Confirmation"
         - if resource.errors[:password_confirmation].any?
           .text-danger Password Confirmation #{resource.errors[:password_confirmation][0]}
+      .mt-2
+        = form.label :current_password, class: "required"
+        = form.password_field :current_password, class: "form-control", placeholder: "Enter Current Password"
+        - if resource.errors[:current_password].any?
+          .text-danger Current Password #{resource.errors[:current_password][0]}
       .text-center.py-3.row
         .col-md-3
         .col-md-6
           = form.submit "Sign Up", class: "btn btn-primary mr-2"
-          = link_to "Back", new_user_session_path, class: "btn btn-dark ml-2"
+          = link_to "Back", :back , class: "btn btn-dark ml-2"
         .col-md-3
   .col-md-4
