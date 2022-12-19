@@ -15,7 +15,7 @@
       <input class="form-control col-md-8" type="text" value="#{@model.user.email}" readonly>
     .form-group.row
       label.col-md-4.col-form-label Status
-      <input class="form-control col-md-8" type="text" value="#{@model.public_flag == 1 ? 'Public' : @model.public_flag == 2 ? 'Users' : 'Private'}" readonly>
+      <input class="form-control col-md-8" type="text" value="#{@model.status == 1 ? 'Public' : @model.status == 2 ? 'Users' : 'Private'}" readonly>
     .form-group.text-center
       = link_to "Edit Post", edit_post_path(@model), class: "btn btn-success mx-2"
       = link_to "Delete", post_path,

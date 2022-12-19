@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       post.title = Faker::Superhero.name
       post.body = Faker::Superhero.power
       post.user_id = current_user.id
-      post.public_flag = 3
+      post.status = 3
       post.save!
       redirect_to posts_path, notice: 'Post Created Successfully'
   end
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :public_flag)
+    params.require(:post).permit(:title, :body, :user_id, :status)
   end
 end

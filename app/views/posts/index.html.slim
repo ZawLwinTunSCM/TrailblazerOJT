@@ -25,7 +25,7 @@
           td #{post.title}
           td.truncate #{post.body}
           td #{post.user.email}
-          td.text-center #{post.public_flag == 1 ? "<i class='fas fa-globe'></i>".html_safe : post.public_flag == 2 ? "<i class='fas fa-user'></i>".html_safe : "<i class='fas fa-lock'></i>".html_safe}
+          td.text-center #{post.status == 1 ? "<i class='fas fa-globe'></i>".html_safe : post.status == 2 ? "<i class='fas fa-user'></i>".html_safe : "<i class='fas fa-lock'></i>".html_safe}
           td #{post.created_at.strftime("%Y-%m-%d %H:%M:%S")}
           -if user_signed_in?
             td.text-center = link_to "Detail", post_path(post.id), class: "btn btn-info"
