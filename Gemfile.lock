@@ -90,6 +90,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (2.0.6)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     diff-lcs (1.5.0)
     disposable (0.6.3)
       declarative (>= 0.0.9, < 1.0.0)
@@ -411,6 +414,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.8, >= 4.8.1)
+  devise_invitable (~> 2.0, >= 2.0.6)
   dry-validation
   factory_bot_rails (~> 4.8, >= 4.8.2)
   faker (~> 2.10)

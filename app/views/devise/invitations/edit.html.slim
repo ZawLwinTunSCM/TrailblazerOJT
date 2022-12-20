@@ -1,0 +1,25 @@
+h2.mt-5.mb-3.text-center Accept Invitation?
+.row
+  .col-md-4
+  .col-md-4 
+    = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |form|
+      = form.hidden_field :invitation_token
+      .mt-2
+        = form.label :name, class: "required"
+        = form.text_field :name, class: "form-control", placeholder: "Enter Name"
+        - if resource.errors[:name].any?
+          .text-danger Name #{resource.errors[:name][0]}
+      .mt-2
+        = form.label :password, class: "required"
+        = form.password_field :password, class: "form-control", placeholder: "Enter Password"
+        - if resource.errors[:password].any?
+          .text-danger Password #{resource.errors[:password][0]}
+      .mt-2
+        = form.label :password_confirmation, class: "required"
+        = form.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation Your Password"
+        - if resource.errors[:password_confirmation].any?
+          .text-danger Password Confirmation #{resource.errors[:password_confirmation][0]}
+      .text-center.my-3
+        = form.submit "Confirm", class: "btn btn-primary mr-2"
+        = link_to "Back", new_user_session_path, class: "btn btn-dark ml-2"
+  .col-md-4

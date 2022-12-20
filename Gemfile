@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
  gem 'devise', '~> 4.8', '>= 4.8.1'
+ gem 'devise_invitable', '~> 2.0', '>= 2.0.6'
  gem 'reform'
  gem 'reform-rails'
  gem "simple_form"
