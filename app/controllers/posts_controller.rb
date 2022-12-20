@@ -18,16 +18,16 @@ class PostsController < ApplicationController
       post.title = Faker::Superhero.name
       post.body = Faker::Superhero.power
       post.user_id = current_user.id
-      post.status = 3
+      post.status = 1
       post.save!
-      redirect_to posts_path, notice: 'Post Created Successfully'
+      redirect_to posts_path, :flash => { :success => 'Post Created Successfully!' }
   end
 
   def create
     run Post::Operation::Create do |_result|
-      return redirect_to posts_path, notice: 'Post Created Successfully'
+      return redirect_to posts_path, :flash => { :success => 'Post Created Successfully!' }
     end
-    render :new, notice: 'Failed to create post'
+    render :new, :flash => { :danger => 'Post Creation Failed!' }
   end
 
   def show
@@ -40,14 +40,14 @@ class PostsController < ApplicationController
 
   def update
     run Post::Operation::Update do |_result|
-      return redirect_to posts_path, notice: 'Post Updated Successfully'
+      return redirect_to posts_path, :flash => { :success => 'Post Updated Successfully!' }
     end
-    render :edit, notice: 'Failed to update post'
+    render :edit, :flash => { :success => 'Post Updation Failed!' }
   end
 
   def destroy
     run Post::Operation::Destroy do |_result|
-      redirect_to posts_path, notice: 'Post deleted successfully'
+      redirect_to posts_path, :flash => { :success => 'Post Deleted Successfully' }
     end
   end
 

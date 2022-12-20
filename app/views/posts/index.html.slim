@@ -1,7 +1,10 @@
 .w-100.mx-auto
+  - if flash.any? 
+    - flash.each do |type, msg|
+      #error[class="alert alert-#{type}"] #{msg}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
   h1 Post List
-  - if notice 
-    #div.text-success #{notice}
   = form_with model: @post, method: :GET do |form|
   -if user_signed_in?
     .row.my-3.ml-0
@@ -24,7 +27,7 @@
           td.text-center
           td #{post.title}
           td.truncate #{post.body}
-          td #{post.user.email}
+          td #{post.user.name}
           td.text-center #{post.status == 1 ? "<i class='fas fa-globe'></i>".html_safe : post.status == 2 ? "<i class='fas fa-user'></i>".html_safe : "<i class='fas fa-lock'></i>".html_safe}
           td #{post.created_at.strftime("%Y-%m-%d %H:%M:%S")}
           -if user_signed_in?

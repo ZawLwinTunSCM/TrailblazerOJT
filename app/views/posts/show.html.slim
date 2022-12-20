@@ -12,7 +12,7 @@
       <textarea class="form-control col-md-8" readonly>#{@model.body}</textarea>
     .form-group.row
       label.col-md-4.col-form-label User
-      <input class="form-control col-md-8" type="text" value="#{@model.user.email}" readonly>
+      <input class="form-control col-md-8" type="text" value="#{@model.user.name}" readonly>
     .form-group.row
       label.col-md-4.col-form-label Status
       <input class="form-control col-md-8" type="text" value="#{@model.status == 1 ? 'Public' : @model.status == 2 ? 'Users' : 'Private'}" readonly>

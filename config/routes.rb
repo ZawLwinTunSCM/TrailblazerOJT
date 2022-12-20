@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :posts
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords', registrations: 'users/registrations' }
 
   get '/create_random', to: 'posts#create_random'
 end

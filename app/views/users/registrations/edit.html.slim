@@ -3,11 +3,11 @@ h2.pt-5.pb-2.text-center Edit Profile
   .col-md-4
   .col-md-4 
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form|
-      / .mt-2
-      /   = form.label :name, class: "required"
-      /   = form.text_field :name, class: "form-control", placeholder: "Enter Name"
-      /   - if resource.errors[:name].any?
-      /     .text-danger Name #{resource.errors[:name]}
+      .mt-2
+        = form.label :name, class: "required"
+        = form.text_field :name, class: "form-control", placeholder: "Enter Name"
+        - if resource.errors[:name].any?
+          .text-danger Name #{resource.errors[:name][0]}
       .mt-2
         = form.label :email, class: "required"
         = form.email_field :email, class: "form-control", placeholder: "Enter Email"
@@ -35,9 +35,10 @@ h2.pt-5.pb-2.text-center Edit Profile
         - if resource.errors[:current_password].any?
           .text-danger Current Password #{resource.errors[:current_password][0]}
       .text-center.py-3.row
-        .col-md-3
-        .col-md-6
-          = form.submit "Sign Up", class: "btn btn-primary mr-2"
-          = link_to "Back", :back , class: "btn btn-dark ml-2"
-        .col-md-3
+        .col-md-2
+        .col-md-8
+          = form.submit "Edit Profile", class: "btn btn-primary mr-2"
+          = link_to "Back", posts_path , class: "btn btn-dark ml-2"
+        .col-md-2
+        = link_to "<i class='fas fa-trash-alt'></i> Delete My Account".html_safe, registration_path(resource_name), data: { confirm: "We Cannot Recover Once Your Account is Deleted" }, method: :delete, class: "btn btn-danger w-100 mt-3"
   .col-md-4

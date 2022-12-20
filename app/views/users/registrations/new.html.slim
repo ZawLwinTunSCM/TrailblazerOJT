@@ -3,11 +3,11 @@ h2.pt-5.pb-2.text-center Sign Up
   .col-md-4
   .col-md-4 
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| 
-      / .mt-2
-      /   = form.label :name, class: "required"
-      /   = form.text_field :name, class: "form-control", placeholder: "Enter Name"
-      /   - if resource.errors[:name].any?
-      /     .text-danger Name #{resource.errors[:name]}
+      .mt-2
+        = form.label :name, class: "required"
+        = form.text_field :name, class: "form-control", placeholder: "Enter Name"
+        - if resource.errors[:name].any?
+          .text-danger Name #{resource.errors[:name][0]}
       .mt-2
         = form.label :email, class: "required"
         = form.email_field :email, class: "form-control", placeholder: "Enter Email"

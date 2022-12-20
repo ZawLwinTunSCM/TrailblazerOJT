@@ -1,22 +1,27 @@
+- if flash.any? 
+  - flash.each do |type, msg|
+    #error[class="alert alert-#{type}"] #{msg}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
 h2.pt-5.pb-2.text-center Log In
 .row
   .col-md-4
   .col-md-4 
-    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form|
+    = simple_form_for(@form, as: resource_name, url: session_path(resource_name)) do |form|
       .mt-2
         = form.label :email, class: "required"
         = form.email_field :email, class: "form-control", placeholder: "Enter Email"
-        - if resource.errors[:email].any?
-          .text-danger Email #{resource.errors[:email]}
+        - if @form.errors[:email].any?
+          .text-danger Email #{@form.errors[:email]}
       .mt-2
         = form.label :password, class: "required"
         = form.password_field :password, class: "form-control", placeholder: "Enter Password"
-        - if resource.errors[:password].any?
-          .text-danger Password #{resource.errors[:password]}
+        - if @form.errors[:password].any?
+          .text-danger Password #{@form.errors[:password]}
       .mt-2.row
         .col-md-6
-          = form.check_box :remember_me, class: "", as: :boolean if devise_mapping.rememberable?
-          =< form.label :remember_me, class: "required"
+          = form.check_box :remember_me, as: :boolean if devise_mapping.rememberable?
+          =< form.label :remember_me, id: "rem"
         .col-md-6.text-right
           - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
           = link_to "Forgot your password?", new_password_path(resource_name), class: "badge badge-light"

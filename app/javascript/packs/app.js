@@ -1,9 +1,19 @@
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
 
-  if ($("div").hasClass("text-success") == true) {
+  var abbr = document.getElementsByTagName("abbr");
+  const length = abbr.length;
+  if (length > 0) {
+    for (let z = 0; z < length; z++) {
+      abbr[0].remove();
+    }
+  }
+
+  var error = document.getElementById("error");
+  if(error != null){
+    console.log(error);
     new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
-      $(".text-success").remove();
+      $("#error").remove();
     });
   }
 
@@ -58,6 +68,23 @@ $(document).ready(function () {
         next: "<i class='fas fa-angle-double-right'></i>",
       },
     },
+    drawCallback: function (settings) {
+      var pagination = $(this)
+        .closest(".dataTables_wrapper")
+        .find(".dataTables_paginate");
+      var info = $(this)
+        .closest(".dataTables_wrapper")
+        .find(".dataTables_info");
+      var length = $(this)
+        .closest(".dataTables_wrapper")
+        .find(".dataTables_length");
+      var boolean = false;
+      if (this.api().page.info().pages < 1) {
+        pagination.toggle(boolean);
+        info.toggle(boolean);
+        length.toggle(boolean);
+      }
+    },
   });
 
   postTbl
@@ -70,4 +97,6 @@ $(document).ready(function () {
         });
     })
     .draw();
+
+  $("#rem").removeClass("required");
 });
