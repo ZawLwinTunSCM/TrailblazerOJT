@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.7'
  gem 'sinatra'
  gem 'will_paginate', '~> 3.3', '>= 3.3.1'
  gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
- #gem 'rubocop-rails', require: false
+ gem 'rubocop-rails', require: false
  gem "net-http"
  
  #RSpec

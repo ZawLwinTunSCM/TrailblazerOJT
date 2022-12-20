@@ -25,37 +25,18 @@ a {
   padding: 4px 12px !important;
 }
 
-.dataTables_wrapper .dataTables_paginate{
+.dataTables_wrapper .dataTables_paginate {
   float: none;
   text-align: center;
 }
 
-.truncate{
-  white-space: nowrap; 
-  text-overflow:ellipsis; 
-  overflow: hidden; 
-  max-width:1px;
+.truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 1px;
 }
 
-th{
-  text-align: center!important;
+th {
+  text-align: center !important;
 }
-
-
-/* .page-link{
-  cursor: pointer;
-}
-
-.disabled > span{
- cursor: not-allowed!important;
-}
-
-.active > span{
-  cursor: auto;
- background-color: #007bFF;
- color: #FFFFFF;
-
-.pagination{
-  justify-content: center;
-}
-} */

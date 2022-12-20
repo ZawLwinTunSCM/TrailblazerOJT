@@ -10,7 +10,7 @@ $(document).ready(function () {
   }
 
   var error = document.getElementById("error");
-  if(error != null){
+  if (error != null) {
     console.log(error);
     new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
       $("#error").remove();

@@ -4,6 +4,8 @@
         "autocorrection",
         "Backrefs",
         "Cyclomatic",
+        "omniauth",
+        "Ramdom",
         "rubocop"
     ]
 }
