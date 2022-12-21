@@ -1,0 +1,25 @@
+.w-100.mx-auto
+  - if flash.any? 
+    - flash.each do |type, msg|
+      #error[class="alert alert-#{type}"] #{msg}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+  h1 User List
+  table.table.mb-3.table-bordered.stripe
+    thead.thread-dark
+      tr.text-center
+        th.no-sort No
+        th.no-sort Name
+        th.no-sort Email
+        th Created At
+        th Updated At
+    tbody
+      - @users.each do |user|
+        tr
+          td.text-center
+          td #{user.decorate.full_name} #{user.decorate.login_user}
+          td #{user.email}
+          td #{user.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+          td #{user.updated_at.strftime("%Y-%m-%d %H:%M:%S")}
+
+= console 

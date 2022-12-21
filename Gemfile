@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.7'
  gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
  gem 'rubocop-rails', require: false
  gem "net-http"
+ gem 'draper', '~> 4.0', '>= 4.0.2'
  
  #RSpec
  group :test do

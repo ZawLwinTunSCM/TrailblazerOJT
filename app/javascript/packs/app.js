@@ -34,32 +34,32 @@ $(document).ready(function () {
         orderable: false,
         targets: "no-sort",
       },
-      {
-        width: "5%",
-        targets: 0,
-      },
-      {
-        width: "20%",
-        targets: 1,
-      },
-      {
-        width: "30%",
-        targets: 2,
-      },
-      {
-        width: "20%",
-        targets: 3,
-      },
-      {
-        width: "5%",
-        targets: 4,
-      },
-      {
-        width: "20%",
-        targets: 5,
-      },
+      // {
+      //   width: "5%",
+      //   targets: 0,
+      // },
+      // {
+      //   width: "20%",
+      //   targets: 1,
+      // },
+      // {
+      //   width: "30%",
+      //   targets: 2,
+      // },
+      // {
+      //   width: "20%",
+      //   targets: 3,
+      // },
+      // {
+      //   width: "5%",
+      //   targets: 4,
+      // },
+      // {
+      //   width: "20%",
+      //   targets: 5,
+      // },
     ],
-    order: [[5, "desc"]],
+    // order: [[5, "desc"]],
     lengthMenu: [1, 5, 10, 20, 50],
     pageLength: 10,
     language: {
